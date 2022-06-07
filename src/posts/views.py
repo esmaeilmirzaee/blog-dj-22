@@ -9,6 +9,12 @@ class PostListView(ListView):
 
 class PostCreateView(CreateView):
     model = Post
+    fields = [
+        'title',
+        'content',
+        'thumbnail',
+        'slug'
+    ]
 
 
 class PostUpdateView(UpdateView):
