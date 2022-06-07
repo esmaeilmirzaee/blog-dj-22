@@ -9,6 +9,8 @@ class PostForm(forms.ModelForm):
 
 
 class CommentForm(forms.ModelForm):
+    content = forms.CharField(widget=forms.Textarea(attrs={'rows': 4, 'required': True}))
+
     class Meta:
         model = Comment
-        fields = ('content', )
+        fields = ('content',)

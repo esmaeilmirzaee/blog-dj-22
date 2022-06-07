@@ -20,20 +20,7 @@
         </div>
 
         {# Comment #}
-        <div class="comment">
-            {% if request.user.is_authenticated %}
-                <h1>Comments</h1>
-                <form class="" method="POST">
-                    {% csrf_token %}
-                    {{ form }}
-                    <button type="submit" class="btn btn-secondary btn-block">Sent</button>
-                </form>
-            {% else %}
-                <div class="">
-                    <a href="#" class="btn btn-primary btn-block">Login to comment</a>
-                </div>
-            {% endif %}
-        </div>
+        {%  include 'posts/comment.html' %}
 
         {#        comment list #}
         {% include 'posts/comment_list.html' with post=post %}
