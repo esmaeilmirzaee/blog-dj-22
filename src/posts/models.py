@@ -25,6 +25,9 @@ class Post(models.Model):
     def get_absolute_url(self):
         return reverse('detail', kwargs={'slug': self.slug})
 
+    def get_absolute_update_url(self):
+        return reverse('edit', kwargs={'slug': self.slug})
+
 
 class Comment(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)

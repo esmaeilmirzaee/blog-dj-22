@@ -9,6 +9,10 @@ class PostListView(ListView):
     model = Post
 
 
+class PostDetailView(DetailView):
+    model = Post
+
+
 class PostCreateView(CreateView):
     class_form = PostForm
     model = Post

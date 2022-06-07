@@ -7,15 +7,17 @@ from posts.views import (
     PostCreateView,
     PostUpdateView,
     PostDeleteView,
+    PostDetailView
 )
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts', include('allauth.urls')),
-    path('', PostListView.as_view()),
-    path('create/', PostCreateView.as_view()),
-    path('<str:slug>/edit', PostUpdateView.as_view()),
-    path('<str:slug>/delete', PostDeleteView.as_view(), name='detail')
+    path('', PostListView.as_view(), name='list'),
+    path('create/', PostCreateView.as_view(), name='create'),
+    path('<str:slug>/edit', PostUpdateView.as_view(), name='edit'),
+    path('<str:slug>/delete', PostDeleteView.as_view(), name='delete'),
+    path('<str:slug>/detail', PostDetailView.as_view(), name='detail')
 ]
 
 if settings.DEBUG:
