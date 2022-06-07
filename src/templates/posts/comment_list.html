@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="comments mx-auto w-auto">
+    {% for comment in post.get_comments %}
+        <div class="card p-1 m-2">
+            {{ comment.content }}
+            <span>
+                <small class="text-muted">{{ comment.timestamp|timesince }}</small>
+            </span>
+        </div>
+    {% endfor %}
+</div>
+{% endblock content %}

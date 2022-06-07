@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
-    <div class="d-flex justify-content-center">
+    <div class="d-flex justify-content-center flex-column">
+        {# Post #}
         <div class="card col-8 m-1">
             <a href="{{ post.get_update_url }}">
                 <img src="{{ post.thumbnail.url }}" class="card-img-top" alt="{{ post.title }}">
@@ -17,5 +18,24 @@
             </a>
             {% include 'posts/post_footer.html' %}
         </div>
+
+        {# Comment #}
+        <div class="comment">
+            {% if request.user.is_authenticated %}
+                <h1>Comments</h1>
+                <form class="" method="POST">
+                    {% csrf_token %}
+                    {{ form }}
+                    <button type="submit" class="btn btn-secondary btn-block">Sent</button>
+                </form>
+            {% else %}
+                <div class="">
+                    <a href="#" class="btn btn-primary btn-block">Login to comment</a>
+                </div>
+            {% endif %}
+        </div>
+
+        {#        comment list #}
+        {% include 'posts/comment_list.html' with post=post %}
     </div>
 {% endblock content %}
