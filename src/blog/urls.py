@@ -5,13 +5,15 @@ from django.conf.urls.static import static
 from posts.views import (
     PostListView,
     PostCreateView,
+    PostUpdateView,
 )
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts', include('allauth.urls')),
     path('', PostListView.as_view()),
-    path('create/', PostCreateView.as_view())
+    path('create/', PostCreateView.as_view()),
+    path('<str:slug>/edit', PostUpdateView.as_view())
 ]
 
 if settings.DEBUG:

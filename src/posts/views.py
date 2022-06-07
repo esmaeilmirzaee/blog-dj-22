@@ -22,7 +22,7 @@ class PostUpdateView(UpdateView):
     fields = (
         'title',
         'content',
-        'thumbnails',
+        'thumbnail',
         'slug'
     )
 
