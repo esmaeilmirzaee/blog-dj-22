@@ -2,27 +2,9 @@
 {% load static %}
 
 {% block content %}
-    <div class="container w-25">
-        <div class="card">
-            {% for post in object_list %}
-                {% if post.thumbnail is not None %}
-                    <div class="card-head">
-                        <img src="{{ post.thumbnail.url }}" alt="{{ post.title }}" class="img-fluid">
-                    </div>
-                {% endif %}
-                <div class="card-content">
-
-                    <h1 class="text-center">
-                        {{ post.title }}
-                    </h1>
-                    <p class="p-2">
-                        {{ post.content }}
-                    </p>
-                </div>
-                <p class="card-footer">
-                    <span>{{ post.publish_date }}</span>|<span>{{ post.last_update }}</span>
-                </p>
-            {% endfor %}
-        </div>
+    <div class="container row">
+        {% for post in object_list %}
+                {% include 'posts/post.html' %}
+        {% endfor %}
     </div>
 {% endblock content %}

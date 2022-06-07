@@ -1,10 +1,17 @@
 {% extends 'base.html' %}
-{% load static %}
 
 {% block content %}
-    <form action="" method="POST" class="">
+    <h1 class="">
+        {% if view_type %}
+            {{ view_type|title }}
+        {% else %}
+            Unknown
+        {% endif %}
+        a new post
+    </h1>
+    <form action="" method="POST" class="card w-50" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form }}
-        <button class="btn btn-primary">Save</button>
+        <button class="btn btn-primary">{{ view_type|title }}</button>
     </form>
 {% endblock content %}

@@ -15,7 +15,7 @@ urlpatterns = [
     path('', PostListView.as_view()),
     path('create/', PostCreateView.as_view()),
     path('<str:slug>/edit', PostUpdateView.as_view()),
-    path('<str:slug>/delete', PostDeleteView.as_view())
+    path('<str:slug>/delete', PostDeleteView.as_view(), name='detail')
 ]
 
 if settings.DEBUG:
