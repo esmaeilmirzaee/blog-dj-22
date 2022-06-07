@@ -6,6 +6,7 @@ from posts.views import (
     PostListView,
     PostCreateView,
     PostUpdateView,
+    PostDeleteView,
 )
 
 urlpatterns = [
@@ -13,7 +14,8 @@ urlpatterns = [
     path('accounts', include('allauth.urls')),
     path('', PostListView.as_view()),
     path('create/', PostCreateView.as_view()),
-    path('<str:slug>/edit', PostUpdateView.as_view())
+    path('<str:slug>/edit', PostUpdateView.as_view()),
+    path('<str:slug>/delete', PostDeleteView.as_view())
 ]
 
 if settings.DEBUG:
