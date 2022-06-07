@@ -1,9 +1,9 @@
-<div class="card col-4 m-1">
+<div class="card col-4 m-1 offset-4">
     <a href="{{ post.get_absolute_url }}">
         <img src="{{ post.thumbnail.url }}" class="card-img-top" alt="{{ post.title }}">
         <div class="card-body">
             <h5 class="card-title">{{ post.title }}</h5>
-            <p class="card-text">
+            <p class="card-text concat">
                 {{ post.content }}
             </p>
         </div>

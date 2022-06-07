@@ -28,6 +28,9 @@ class Post(models.Model):
     def get_update_url(self):
         return reverse('edit', kwargs={'slug': self.slug})
 
+    def get_like_url(self):
+        return reverse('like', kwargs={'slug': self.slug})
+
     @property
     def get_comment_count(self):
         return self.comment_set.all().count()
