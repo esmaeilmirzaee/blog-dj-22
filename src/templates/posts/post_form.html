@@ -12,6 +12,12 @@
     <form action="" method="POST" class="card w-50" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form }}
-        <button class="btn btn-primary">{{ view_type|title }}</button>
+        <button class="btn btn-primary">
+            {% if view_type %}
+                {{ view_type|title }}
+            {% else %}
+                Save
+            {% endif %}
+        </button>
     </form>
 {% endblock content %}
